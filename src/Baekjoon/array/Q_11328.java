@@ -1,7 +1,7 @@
 package Baekjoon.array;
 
-import java.io.*;
-import java.util.StringTokenizer;
+        import java.io.*;
+        import java.util.StringTokenizer;
 
 /**
  * 알파벳 갯수가 같으면 되니까 각각 넣어놓고 갯수가 같은지 확인하면 되겠네
