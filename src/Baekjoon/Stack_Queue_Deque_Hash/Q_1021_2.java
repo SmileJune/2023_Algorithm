@@ -4,15 +4,15 @@ import java.io.*;
 import java.util.*;
 
 /**
- * indexOf 메서드를 이용해 미리 위치를 찾아낼 수 있구나!! 다시 풀이
+ *  indexOf 를 이용해 방향을 정해놓고 한 방향으로만 구하자.
  */
-public class Q_1021 {
+public class Q_1021_2 {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
-    static Deque<Integer> deque = new ArrayDeque<>();
-    static Deque<Integer> deque1;
-    static Deque<Integer> deque2;
+    static LinkedList<Integer> deque = new LinkedList<>();
+    static LinkedList<Integer> deque1;
+    static LinkedList<Integer> deque2;
     static int sum = 0;
     public static void main(String[] args) throws IOException {
         st = new StringTokenizer(br.readLine());
@@ -26,14 +26,13 @@ public class Q_1021 {
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < M; i++) {
             int num = Integer.parseInt(st.nextToken());
-            int right = checkRight(num);
-            int left = checkLeft(num);
-            if(right <= left) {
-                deque = deque1;
-                sum += right;
-            } else {
+            double half = (double)deque.size() / 2;
+            if(deque.indexOf(num) < half) {
+                sum += checkLeft(num);
                 deque = deque2;
-                sum += left;
+            } else {
+                sum += checkRight(num);
+                deque = deque1;
             }
         }
 
@@ -54,7 +53,7 @@ public class Q_1021 {
     private static int checkLeft(int num) {
         deque2 = new LinkedList<>(deque);
         int n = 0;
-        while(!deque1.isEmpty() && deque2.peekFirst() != num) {
+        while(!deque2.isEmpty() && deque2.peekFirst() != num) {
             deque2.offerLast(deque2.pollFirst());
             n++;
         }
