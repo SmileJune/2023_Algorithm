@@ -20,8 +20,10 @@ public class Q_9012 {
     private static String solution() throws IOException {
         String str = br.readLine();
         stack = new Stack<>();
+
         for(int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
+
             // '(' 가 나오면 무조건 넣어
             if(ch == '(') {
                 stack.push(ch);

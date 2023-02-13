@@ -1,8 +1,7 @@
 package Baekjoon.Stack_Queue_Deque_Hash;
 
 import java.io.*;
-import java.util.Stack;
-import java.util.StringTokenizer;
+import java.util.*;
 
 class Node {
     int order;
